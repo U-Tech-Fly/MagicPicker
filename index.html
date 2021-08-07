@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="MagicPicker Tool is developed for new developers to saving their time to pick colour codes like Hexa and RGB , Owner U-Tech">
+		<meta name="keywords" content="colour picker,html colours,best colour picker ,U-Tech,Gotofly,web color picker" >
+		<meta name="author" content="U-Tech">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MagicPicker-U-Tech</title>
+	</head>
+	<style>
+a{text-decoration: none; color: white; transition: all 0.7s; font-family:arial;}
+a:hover{color: black;}
+*{margin: 0;
+padding: 0;}
+.active{
+color: black;
+}
+body{
+background: #eee;
+background-image: url('u-Tech.png'),url('2.png');
+background-size: 200px,100% 100vh;
+background-position:left,0% 0% ;
+background-repeat: no-repeat,repeat;
+}
+.boss{
+width: 300px;
+height: 300px;
+border-radius: 30px;
+margin: 100px 500px;
+padding: 20px;
+box-shadow: 4px 3px 80px 5px black ,-2px 3px 80px 3px black ;
+background: #00000063;
+color: white;
+}
+.my{
+margin: 60px 10px;
+
+width: 300px;
+}
+input{
+height: 20px;
+font-size: 20px;
+}
+#result{
+margin-left: 0px;
+height: 30px;
+border-left: 60px;
+border-right: none;
+border-top: none;
+outline: none;
+background: none;
+border-bottom: 2px solid white;
+text-align: center;
+font-family: cursive;
+margin: 0 10px;
+color: white;
+}
+
+h3{
+text-align: center;
+font-family: math;
+}
+.btn{
+width: 90px;
+padding: 10px;
+font-size: 20px;
+margin-top: 40px;
+margin-left: 90px;
+background: transparent;
+border: 2px solid white;
+cursor: pointer;
+border-radius: 10px;
+color: white;
+}
+.btn:hover{
+background-color: chocolate;
+color: white;
+transition: all 0.6s ease-in-out;
+
+}
+input[type="color" i] {
+appearance: auto;
+width: 84px;
+height: 43px;
+margin: 0px 90px;
+background-color:transparent;
+cursor: pointer;
+color: -internal-light-dark(black, white);
+border-style: none;
+padding: 1px 2px;
+}
+.float{
+
+display: inline;
+height: 50px;
+font: 16px;
+font-family: serif;
+position: fixed;
+color: white;
+width: 100%;
+padding-top: 25px;
+top: 2px;
+background-color:#08070752;
+text-align: center;
+background-color: #08070752;
+display: flex;
+column-gap: 0px;
+}
+span{
+padding-top: 0px;
+margin-top: 0px;
+margin-left: 200px;
+}
+/* about us css */
+.box{
+	position: fixed;
+	
+	border:none;
+	/* box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, .8),0px 2px 5px 0px rgba(0, 0, 0, .8),1px 2px 5px 0px rgba(0, 0, 0, .8); */
+	top: 30px;
+	display: none;
+	left: 40px;
+	width: 300px;
+	height: 300px;
+	margin-left: 40px;
+	margin-top: 30px;
+	color: white;
+	font-family: tahoma;
+	overflow: hidden;
+	text-align: center;
+	padding: 10px;
+}
+.boxfront,.boxBack{
+	width: 200px;
+	height: 200px;
+	padding: 30px;
+	margin-left: 20px;
+	position: absolute;
+	margin-top: 30px;
+	cursor: pointer;
+	border-radius: 12px;
+}
+.boxfront{background-image: linear-gradient(red,gold,orange,yellow,silver,hotpink); }
+.boxfront p{font-size: 60px; }
+.boxfront h4{font-weight: bolder; font-size: 30px; margin-top: 10px;}
+.boxBack{background-color: chocolate; transform: rotateY(180deg); }
+.cardText{
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.5s;
+
+}
+.boxBack p{
+	margin-top: -20px;
+}
+.box .cardText:hover{
+	transform: rotateY(180deg);
+}
+
+.formbox{
+	border: none;
+	width: 450px;
+	height: 350px;
+	position: absolute;
+	top: 160px;
+    right: 4%;
+	border-radius: 8px;
+	padding: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color:#2e9ddba1;
+  visibility: hidden;
+}
+
+.form-contant{
+   padding-top: 10px;
+	width: 360px;
+}
+.flex-input{
+	display: flex;
+	gap: 10px;
+	flex-direction: row;
+	justify-content: center;
+
+}
+label{
+	font-size: 20px;
+	color: white;
+
+}
+.formin{
+	font-size: 18px;
+	text-align: center;
+	border-radius: 10px;
+	outline: none;
+}
+
+.fname , .lname,.email{
+	width: 100%;
+	height: 20px;
+	border-left:none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 2px solid white;
+	border-radius: 0px;
+	background-color: transparent;
+	transition: 0.3s ease-in;
+	
+	
+}
+ textarea{
+ 	box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+ }
+.fname:focus-visible{
+	height: 40px;
+	color: white;
+}
+  ::-webkit-input-placeholder{
+        	color: white;
+        }
+        .col input::-webkit-input-placeholder{
+        	color: transparent;
+        }
+        .col input:focus::-webkit-input-placeholder{
+        	color: white;
+        }
+        textarea::placeholder{
+        	color: black;
+        }
+        input[type='email']::placeholder{
+        	color: transparent;
+        }
+         input:focus[type='email']::placeholder{
+        	color: white;
+        }
+.lname:focus-visible{
+	height: 40px;
+	color: white;
+}
+
+ .email:focus-visible{
+ 	height: 40px;
+ 	color: white;
+ }
+.col-3{
+	display: flex;
+	flex-direction: column;
+
+}
+.col-e{margin-top: 10px;}
+.col-4{
+	margin-top: 20px;
+
+}
+.submit{
+	font-size: 20px;
+    text-align: center;
+	width: 100%;
+	height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0px 2px 20px 5px rgba(0, 0, 0, .2),0px 2px 20px 5px rgba(0, 0, 0, .2) ;
+    cursor: pointer;
+    
+
+}
+.submit:hover{
+	box-shadow: 0px 2px 20px 5px rgba(0, 0, 0, .2),0px 2px 20px 5px rgba(0, 0, 0, .2) ;
+	background-color: lightgreen;
+	transition: 0.3s ease-in;
+	color: white;
+}
+.submit:focus{
+	box-shadow: 0px 2px 20px 2px lightgray,0px 2px 20px 5px rgba(0, 0, 0, .2) ;
+	border: 0.3px solid black;
+}
+.clos{display: inline; color: white; font-weight:bolder; font-size: 20px; cursor: pointer;}
+.clos:hover{color: red; text-shadow: 2px 2px 1px rgba(255, 255, 255, .6);}
+.lightbox{
+	display: flex;
+	position: fixed;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+	transition-duration: 1s;
+	flex-direction:column;
+
+}
+.lightbox:target{
+	top: 0;
+}
+.lbox-content{
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	border: none;
+	margin-top: 30px;
+   
+}
+.close{position: absolute; text-decoration: none; font-weight:300;
+color: white; margin-top: 20px;
+left: 30px;
+}
+.img{width: 200px; height: 200px;}
+.lbox-content1{
+	display: flex;
+	flex-direction: column;
+	color: white;
+	border:none;
+	margin-top: 40px;
+	align-items: center;
+	font-family: verdana;
+  font-weight: bold;
+  flex-wrap: wrap;
+
+}
+.boxline{
+	border-bottom: 2px solid rgba(255, 255, 255, .2);
+	padding: 3px;
+}
+.textt{
+	justify-content: center;
+	padding: 20px;
+}
+
+
+
+ /* 800px mobile */
+
+@media (max-width: 800px) {
+body{
+overflow: hidden hidden;
+background-size: 300px,cover;
+background-position: bottom,0% 0%;
+
+}
+
+.boss{
+	border: 1px solid blue;
+width: 300px;
+height: 300px;
+border-radius: 30px;
+margin: 150px 70px;
+padding: 20px;
+box-shadow: 4px 3px 80px 5px black ,-2px 3px 80px 3px black ;
+background:#00000063;
+color: white;
+}
+.float{
+padding-top: 4px;
+background-color: #08070752;
+display: flex;
+justify-content: center;
+gap: 18px;
+
+align-items: center;
+}
+span{
+margin-left:15px;
+}
+.formbox{
+	border: none;
+	width: 250px;
+	height: 400px;
+	position: absolute;
+	top: 100px;
+   left: 50px;
+	border-radius: 8px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	background-color:#2e9ddba1;
+  visibility: hidden;
+  transition: none !important;
+}
+.flex-input{
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	justify-content: center;
+
+}
+.form-contant{
+   padding-top: 10px;
+	width: 250px;
+}
+.submit{
+	 font-size: 18px;
+   text-align: center;
+	 width: 80%;
+	 height: 35px;
+   border-radius: 10px;
+   border: none;
+   margin-left: 30px;
+   background-color: transparent;
+   box-shadow: 0px 2px 20px 5px rgba(0, 0, 0, .2),0px 2px 20px 5px rgba(0, 0, 0, .2) ;
+   cursor: pointer;
+}
+}
+
+  /* 400px mobile */
+@media (max-width: 400px) {
+body{
+overflow: hidden hidden;
+background-size: 400px,100vw 100vh;
+background-position:20px 400px,0px 0px;
+}
+
+.my{overflow: hidden;}
+#result{
+margin-left:0px;
+width: 250px;
+position: absolute;
+left:70px ;
+}
+.btn{
+font-size: 18px;
+margin-top: 20px;
+margin-left: 60px;
+}
+input[type="color" i] {
+margin: 0px 60px;
+}
+.boss{
+width: 250px;
+height: 250px;
+border-radius: 30px;
+margin: 150px 50px;
+padding: 20px;
+box-shadow: 4px 3px 80px 5px black ,-2px 3px 80px 3px black ;
+background: #00000063;
+color: white;
+overflow: hidden;
+}
+.float{
+padding-top: 30px;
+background-color: #08070752;
+display: flex;
+column-gap: 15px;
+top: -13px;
+align-items: center;
+}
+a{font-size: 10px;}
+span{
+margin-left:15px;
+}
+}
+
+
+
+	</style>
+	<body>
+		<div class="boss">
+			<h3>Pick Your Color</h3>
+			
+			<div class="my">
+				<input type="text" name="" id="result" ondblclick="alert('copy and past')" oninput="sand.value=result.value" >
+				<br>
+				<br>
+				<input type="color" name="" id="sand" oninput="result.value=sand.value" class="color" >
+				<br>
+				<button class="btn btn-dark" onclick="myFunction()">Copy <i class="fas fa-copy" size="2px"></i></button>
+			</div>
+			<script>
+			function myFunction() {
+			/* Get the text field */
+			var copyText = document.getElementById("result");
+			/* Select the text field */
+			copyText.select();
+			copyText.setSelectionRange(0, 99999); /* For mobile devices */
+			/* Copy the text inside the text field */
+			document.execCommand("copy");
+			/* Alert the copied text */
+			alert("Copied the text: " + copyText.value);
+			}
+			</script>
+		</div>
+		<div class="float">
+
+			<span ><a href="#more">More Services</a></span>
+			<span><a href="##" onclick="open8()">Mail Us</a></span>
+			<span>
+				<a href="##"  onclick="open7()" >About Us</a>
+			</span>
+			
+			<span>
+					<a href="##">Subscribe</a>
+			</span>
+		</div>
+         
+          <div class="formbox" id="formbox">
+          <!-- 	<span onclick="end8()">X</span> -->
+           <div class="form-contant">
+           	<form action="" autocomplete="off" >
+           		<p style="text-align:center;" onclick="end8()" class="clos">X</p>
+          		<div class="flex-input">
+          			<div class="col-1 col">
+          				<label for="fname">First Name</label>
+          				<input type="text" name="fname" id="fname" placeholder="First name" class="fname formin" list="none" autocomplete="false" >
+          			</div>
+          			<div class="col-2 col">
+          				<label for="lname">Last Name</label>
+          				<input type="text" name="lname" id="lname" placeholder="Last name" class="lname formin" autocomplete="false" >
+          			</div>
+          			</div>
+          			<div class="col-e col">
+          				<label for="Email">Email</label>
+          				<input type="email" name="email" id="email" placeholder="Email" class="formin email" autocomplete="false" >
+          			</div>
+          			<div class="col-3 ">
+          				<label for="tarea">Message</label>
+          				
+          				<textarea name="tarea" id="tarea" cols="30" rows="5" placeholder="Type Comment" class="tarea formin" value=""></textarea>
+          			</div>
+          			<div class="col-4 ">
+          				<button class="submit" type="submit" class="form-button">Post</button>
+          			</div>
+          		</form>
+
+          	</div>
+          
+          </div>
+        
+        
+        
+        	<div class="box" id="aboutbox" >
+        		
+        		<div class="cardText" >
+        			<button  onclick="end7()" style=" background:none; border:none; color:white; px;  cursor: pointer;">X</button>
+        			<div class="boxfront"  >
+
+        				<p>Magic Picker</p>
+        		       <h4>About Us</h4>
+        			</div>
+        			<div class="boxBack" >
+        				
+        				<p>MagicPicker Tool is developed for new developers 
+        					to saving their time to pick colour codes like <b>Hexa & RGB</b>.You can also download this color picker offline on your PC & and Modify it because it's open-Source. MagicPicker is developed by U-Tech. U-Tech is a softwere company & we have lots of best & free online Services</p>
+
+        			</div>
+        		</div>
+        	</div>
+         
+         <!-- more servises -->
+         <div class="lightbox" id="more">
+         	<a href="#" class="close">CLOSE</a>
+         	<div class="lbox-content1 boxline">
+         		<img src="" alt="" >
+         		<h1>Our Services</h1>
+         	</div>
+
+         	 	<div class="lbox-content">
+         		<img src="anime un.png" class="img">
+         	</div>
+         	
+         		<div class="lbox-content1 textt">
+         			
+         		<p>In this Time we Have only one Services but in future we provide best and more Services , Enjoy and Support</p>
+
+         	</div>
+         		
+         </div>
+  
+
+        <script>
+        	 function open7(){
+        	 	var sty = document.getElementById("aboutbox");
+        	 	sty.style.display = 'block'
+        	 	sty.style.transition = '4.8s'
+        	 }
+        	 function end7(){
+        	 	var sty2 = document.getElementById("aboutbox");
+        	 	sty2.style.display = 'none'
+        	 	sty2.style.transition = '4.8s'
+        	 }
+           
+           function open8(){
+        	 	var sty1 = document.getElementById("formbox");
+        	 	sty1.style.visibility = 'visible'
+        	 }
+        	 function end8(){
+        	 	var sty3 = document.getElementById("formbox");
+        	 	sty3.style.visibility= 'hidden'
+        	 	
+        	 }
+        </script>
+	</body>
+</html>
